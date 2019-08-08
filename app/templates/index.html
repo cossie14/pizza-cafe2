@@ -1,18 +1,56 @@
-{% extends "base.html" %}
+{% extends 'base.html'%}
 
 {% block content %}
-       <div class="container">
-           <div class="landing">
-               <h2>Welcome</h2>
-               <h2>PIZZA CAFE<br> The coolest place for your favorite pizza!</h2>
-               <a href="{{ url_for('signup') }}" class="btn-primary">Sign-Up</a>
-               <a href="{{ url_for('login') }}" class="btn-primary">sign-in</a>
-               <a href="{{ url_for('order') }}" class="btn-primary">Order</a>
+
+<div class="jumbotron">
+   
+  <h1>Pizza cafe</h1>
+  <h1>mmh! smell th pizza</h1>
+</div>
+
+<hr>
+
+
+
+<div class="container">
+   <div class="row">
+     <p>View our delicious pizza</p>
+       <div class="col-md-4">
+           <div class="well well-lg">
+               <img src="https://cdnimg.webstaurantstore.com/uploads/buying_guide/2014/11/pizzatypes-margherita-.jpg" alt="" >
+               <h3>Neapolitan Pizza</h3>
+               <p>Close-up view of slice of Neapolitan pizza with cheese, sliced tomatoes, and basil
+               <a href="{{url_for('main.nea')}}" class="btn btn-primary -center">View</a>
            </div>
        </div>
-
-      
-
-     
+       <div class="col-md-4">
+        <div class="well well-lg">
+            <img src="https://cdnimg.webstaurantstore.com/uploads/blog/2016/8/onions.jpg" alt="" height="300px"width="300px">
+            <h3>Greek Pizza</h3>
+            <p>Greek pizza on pizza peel with tomatoes, garlic, and greens in background</p>
+            <a href="{{url_for('main.greek')}}" class="btn btn-primary -center">View more</a>
+        </div>
+    </div>
+    
+       <div class="col-md-4">
+        <div class="well well-lg">
+                <img src="https://cdnimg.webstaurantstore.com/uploads/buying_guide/2014/11/pizzatypes-deepdish.jpg" alt=""height="300px"width="300px">
+            <h3>Chicago Pizza</h3>
+            <p>Generally, the toppings for Chicago pizza are ground beef, sausage, pepperoni, onion, mushrooms, and green peppers, placed underneath the tomato sauce. Some locations will finish off their pizzas with a sprinkle of Parmesan cheese across the tomato sauce.</p>
+            <a href="{{url_for('main.chi')}}" class="btn btn-primary -center">View more</a>
+        </div>
+    </div>
   
-{% endblock %}
+       <div class="col-md-4">
+           <div class="well well-lg">
+                <img src="https://cdnimg.webstaurantstore.com/uploads/blog/2016/8/flat.jpg" alt=""height="300px"width="300px">
+               <h3>New-york Pizza</h3>
+               <p>New York-style pizza usually features tomato sauce and mozzarella cheese, topping New York pizza with condiments, like oregano, red pepper flakes, Parmesan cheese, and garlic powder.</p>
+
+               <a href="{{url_for('main.new')}}" class="btn btn-primary -center">View more</a>
+           </div>
+       </div>
+   </div>
+</div>
+ 
+  {% endblock %}

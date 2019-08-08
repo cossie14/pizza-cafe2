@@ -12,6 +12,25 @@ class User(UserMixin,db.Model):
     email = db.Column(db.String(255),unique = True,index = True)
     profile_pic_path = db.Column(db.String())
     password_secure = db.Column(db.String(255))
+    @property
+    def password(self):
+        raise AttributeError('You cannot read the password attribute')
+
+    
+   
+
+    @password.setter
+    def password(self, password):
+        self.password_secure = generate_password_hash(password)
+
+
+    def verify_password(self,password):
+        return check_password_hash(self.password_secure,password)
+    @login_manager.user_loader
+    def load_user(user_id):
+        return User.query.get(int(user_id))
+    
+
 class Pizza(db.Model):
     __tablename__ = 'pizza'
 
@@ -33,21 +52,4 @@ class Staff(db.Model):
     price = db.Column(db.Integer)
    
          
-    @property
-    def password(self):
-        raise AttributeError('You cannot read the password attribute')
-
-    
-   
-
-    @password.setter
-    def password(self, password):
-        self.password_secure = generate_password_hash(password)
-
-
-    def verify_password(self,password):
-        return check_password_hash(self.password_secure,password)
-    @login_manager.user_loader
-    def load_user(user_id):
-        return User.query.get(int(user_id))
-    
+ 

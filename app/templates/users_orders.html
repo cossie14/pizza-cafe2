@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <p>THE ORDERS YOU HAVE BEEN MAKING</p>
+    </div>
+    {% if pizza %}
+   {%for pizza in pizza%}
+    <div class="panel panel-primary">
+        {{current_user.username}}
+        <div class="panel-heading">{{pizza.name}}</div>
+        <div class="panel-body">
+            {{pizza.toppings}}
+            <br>
+            {{pizza.crust}}
+            <br>
+            </div>
+    </div>
+   
+    {% else %}
+    No oder made
+    {%endfor%}
+    {% endif %}
+</div>
+{% endblock %}
+
+
+
+
